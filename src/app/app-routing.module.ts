@@ -7,7 +7,16 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-  }
+  },
+  {
+
+    path: '', data: { preload: false, }, loadChildren: './admin/admin.module#AdminModule',
+  } ,
+  {
+
+    path: '', data: { preload: false, }, loadChildren: './chief/chief.module#ChiefModule',
+  } 
+
 ];
 
 @NgModule({
@@ -15,3 +24,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 
