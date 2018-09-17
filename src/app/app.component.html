@@ -1,21 +1,63 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<td-layout>
+  <td-layout-nav toolbarTitle="西安交大在线学习平台" navigationRoute="/">
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
 
-<router-outlet></router-outlet>
+
+      <span flex></span>
+      <a mat-list-item [routerLink]="['/admin']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+
+        管理员
+      </a>
+      <a mat-list-item [routerLink]="['/director']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+
+        教研室主任
+      </a>
+      <a mat-list-item [routerLink]="['/chief']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+
+        教师
+      </a>
+      <a mat-list-item [routerLink]="['/student']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+
+        学生
+      </a>
+      <button class="overflow-visible" mat-icon-button [matMenuTriggerFor]="notificationsMenu" matTooltip="通知">
+        <td-notification-count [notifications]="12">
+          <mat-icon>notifications</mat-icon>
+        </td-notification-count>
+      </button>
+      <mat-menu #notificationsMenu="matMenu" [overlapTrigger]="false">
+        <td-menu>
+          <div td-menu-header class="mat-subheading-2">通知</div>
+          <mat-nav-list dense>
+            <ng-template let-last="last" ngFor [ngForOf]="[0,1,2,3,4]">
+              <a mat-list-item>
+                <mat-icon matListAvatar>today</mat-icon>
+                <h4 matLine><span class="text-wrap">这是一条通知.</span></h4>
+                <p matLine>22天前</p>
+              </a>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </ng-template>
+          </mat-nav-list>
+          <button mat-button color="accent" td-menu-footer>
+            更多通知
+          </button>
+        </td-menu>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="账号">
+        <mat-icon>chrome_reader_mode</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>个人信息</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/login']">
+          <mat-icon>voicemail</mat-icon>
+          <span>退出</span>
+        </button>
+      </mat-menu>
+    </div>
+    <router-outlet></router-outlet>
+  </td-layout-nav>
+</td-layout>

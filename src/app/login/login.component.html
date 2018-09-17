@@ -1,0 +1,42 @@
+<div layout="column" layout-fill>
+  
+  <div class="mat-content" layout-padding flex>
+    <div layout-gt-xs="row" layout-align-gt-xs="center start" class="margin">
+      <div flex-gt-xs="50">
+        <mat-card tdMediaToggle="gt-xs" [mediaClasses]="['push-top-lg']">
+          <mat-card-title> 登录</mat-card-title>
+          <mat-card-subtitle>使用您的工号或学号作为用户名登录</mat-card-subtitle>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            <form #loginForm="ngForm">
+              <div layout="row">
+                <mat-form-field flex> 
+                  <input matInput #userElement #userControl="ngModel" placeholder="用户名" type="text" maxlength="30" name="username" [(ngModel)]="username" required>
+                  <span matPrefix><mat-icon>person</mat-icon></span>
+                  <mat-hint align="start">
+                    <span [hidden]="!userControl.errors?.required || userControl.pristine" class="tc-red-600">Required</span>
+                  </mat-hint>
+                  <mat-hint align="end">{{userElement.value.length}} / 30</mat-hint>
+                </mat-form-field>
+              </div>
+              <div layout="row">
+                <mat-form-field flex> 
+                  <input matInput #passElement #passControl="ngModel" placeholder="密码" type="password" name="password" [(ngModel)]="password" required>
+                  <span matPrefix><mat-icon>lock</mat-icon></span>
+                  <mat-hint align="start">
+                    <span [hidden]="!passControl.errors?.required || passControl.pristine" class="tc-red-600">Required</span>
+                  </mat-hint>
+                  <mat-hint align="end">16/16</mat-hint>
+                </mat-form-field>
+              </div>
+            </form>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions layout="row">
+            <button flex mat-raised-button color="accent" [disabled]="!loginForm.form.valid" (click)="login()">登录</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>    
+  </div>
+</div>
