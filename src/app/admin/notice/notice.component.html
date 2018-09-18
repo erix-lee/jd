@@ -3,8 +3,73 @@
   <button mat-icon-button td-menu-button tdLayoutManageListToggle>
     <mat-icon>menu</mat-icon>
   </button>
-  Content Title
+  公告发布
   <span flex></span>
   <mat-icon class="example-icon">verified_user</mat-icon>
 
 </mat-toolbar>
+<div layout-sm="row" layout-gt-md="row">
+
+  <mat-card flex-sm="70" flex-gt-md="70">
+    <mat-card-title>新公告</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-tab-group class="demo-tab-group">
+        <mat-tab label="编辑模式">
+
+          <div [froalaEditor]>公告内容!</div>
+          <mat-button-toggle-group #group="matButtonToggleGroup">
+            <mat-button-toggle value="left">
+              全员
+            </mat-button-toggle>
+            <mat-button-toggle value="center">
+              仅教师
+            </mat-button-toggle>
+            <mat-button-toggle value="right">
+              仅学生
+            </mat-button-toggle>
+
+          </mat-button-toggle-group>
+          其他发布选项：如有效时间。
+          <p>附件: {{fileSelectMsg}}</p>
+
+          <td-file-upload #singleFileUpload [(ngModel)]="files" (select)="selectEvent($event)" (upload)="uploadEvent($event)"
+            (cancel)="cancelEvent()" [disabled]="disabled" required>
+            <mat-icon>file_upload</mat-icon><span>{{ singleFileUpload.value?.name }}</span>
+            <ng-template td-file-input-label>
+              <mat-icon>attach_file</mat-icon>
+              <span>
+                选择文件...</span>
+              <span [hidden]="!singleFileUpload?.required">*</span>
+            </ng-template>
+          </td-file-upload>
+          <div class="button-row">
+
+            <button mat-button color="primary">立即发布</button>
+            <button mat-button color="accent">保存为草稿</button>
+
+          </div>
+
+        </mat-tab>
+        
+   
+        <mat-tab label="预览模式">
+          <div class="demo-tab-content">
+             ....
+          </div>
+        </mat-tab>
+      
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+  <mat-card flex-sm flex-gt-md>
+    <mat-card-title>历史公告</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <h3>公告A</h3>
+      <p>7月23日 </p>
+      <h3>公告A</h3>
+      <p>7月23日 </p>
+    </mat-card-content>
+  </mat-card>
+</div>

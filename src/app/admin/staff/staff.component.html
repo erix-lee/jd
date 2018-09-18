@@ -1,3 +1,110 @@
-<p>
-  staff works!
-</p>
+<mat-toolbar>
+
+  <button mat-icon-button td-menu-button tdLayoutManageListToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+角色分配
+  <span flex></span>
+  <mat-icon class="example-icon">verified_user</mat-icon>
+
+</mat-toolbar>
+<div layout-sm="row" layout-gt-md="row">
+  <mat-card flex-sm="33" flex-gt-md="33">
+
+    <mat-card-title>
+      <div class="pull-right">
+        <mat-card-actions>
+          <button mat-button>添加</button>
+          <button mat-button>修改</button>
+          <button mat-button>删除</button>
+        </mat-card-actions>
+      </div>教研室
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="bgc-indigo-700 tc-white md-padding">
+          <span flex="70" class="text-xl">教研室A</span>
+
+          <span flex>曹主任</span>
+        </div>
+        <div flex layout-gt-xs="row" layout-align="start center" class=" md-padding">
+          <span flex="70" class="text-xl">教研室B</span>
+
+          <span flex>李主任</span>
+        </div>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+  <mat-card flex-sm="33" flex-gt-md="33">
+    <mat-card-title> <div class="pull-right">
+        <mat-card-actions>
+            <button mat-button>添加</button>
+            <button mat-button>修改</button>
+            <button mat-button>删除</button>
+        </mat-card-actions>
+      </div>教研室A 课程组</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+          <span flex="70" class="text-xl">课程组A</span>
+
+          <span flex>王老师</span>
+        </div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="bgc-indigo-700 tc-white  md-padding">
+          <span flex="70" class="text-xl">课程组B</span>
+
+          <span flex>张老师</span>
+        </div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+          <span flex="70" class="text-xl">课程组C</span>
+
+          <span flex>王老师</span>
+        </div>
+      </div>
+    </mat-card-content>
+ 
+  </mat-card>
+  <mat-card flex-sm flex-gt-md>
+    <mat-card-title> <div class="pull-right">
+        <mat-card-actions>
+            <button mat-button>添加</button>
+            <button mat-button>移除</button>
+        </mat-card-actions>
+      </div>课程组B 组员</mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+
+
+          <span flex>王老师</span>
+        </div>
+        <div flex layout-gt-xs="row" layout-align="start center" class="bgc-indigo-700 tc-white  md-padding">
+
+
+          <span flex>张老师</span>
+        </div>
+      </div>
+      <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+
+
+        <span flex>王老师</span>
+      </div>
+      <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+
+
+        <span flex>王老师</span>
+      </div>
+      <div flex layout-gt-xs="row" layout-align="start center" class="md-padding">
+
+
+        <span flex>王老师</span>
+      </div>
+    </mat-card-content>
+ 
+  </mat-card>
+</div>

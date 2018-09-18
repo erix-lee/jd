@@ -1,4 +1,4 @@
-import { NgModule, Type } from '@angular/core';
+import { NgModule, Type, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +15,7 @@ import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuMo
 import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
-import { CovalentLoadingModule } from '@covalent/core/loading';
+import { CovalentLoadingModule, TdLoadingService } from '@covalent/core/loading';
 import { CovalentNotificationsModule } from '@covalent/core/notifications';
 import {  CovalentMenuModule } from '@covalent/core';
 import { CovalentHttpModule, IHttpInterceptor } from '@covalent/http';
@@ -28,6 +28,7 @@ import { LoginComponent } from './login/login.component';
 import { RequestInterceptor } from '../config/interceptors/request.interceptor';
 import { MOCK_API } from '../config/api.config';
 import { CourseComponent } from './course/course.component';
+import { InternalDocsService } from '../services';
 
 const httpInterceptorProviders: Type<any>[] = [
   RequestInterceptor,
@@ -85,6 +86,11 @@ export function getAPI(): string {
   
   ], // modules needed to run this module
   providers: [
+
+    TdLoadingService,
+    InternalDocsService, 
+
+
     httpInterceptorProviders,
     Title,
   ], // additional providers needed for this module

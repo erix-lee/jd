@@ -13,7 +13,7 @@ import { StudentsComponent } from './students/students.component';
 import { NoticeComponent } from './notice/notice.component';
 import { StaffComponent } from './staff/staff.component';
 import { SettingComponent } from './setting/setting.component';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 @NgModule({
   imports: [
     CommonModule,
@@ -59,7 +59,7 @@ import { SettingComponent } from './setting/setting.component';
     CovalentVirtualScrollModule,
 
     NgxChartsModule,
-
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   declarations: [AdminComponent, AdminHomeComponent, TechersComponent, StudentsComponent, NoticeComponent, StaffComponent, SettingComponent]
 })
