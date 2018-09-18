@@ -15,6 +15,14 @@ const routes: Routes = [
   {
 
     path: '', data: { preload: false, }, loadChildren: './chief/chief.module#ChiefModule',
+  } ,
+  {
+
+    path: '', data: { preload: false, }, loadChildren: './director/director.module#DirectorModule',
+  } ,
+  {
+
+    path: '', data: { preload: false, }, loadChildren: './student/student.module#StudentModule',
   } 
 
 ];

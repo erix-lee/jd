@@ -1,21 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChiefRoutingModule } from './chief-routing.module';
-import { ChiefHomeComponent } from './chief-home/chief-home.component';
-import { ChiefComponent } from './chief.component';
+import { StudentRoutingModule } from './student-routing.module';
+import { StudentComponent } from './student.component';
+import { StudentHomeComponent } from './student-home/student-home.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatInputModule, MatSelectModule, MatButtonToggleModule, MatSlideToggleModule, MatToolbarModule, MatTabsModule, MatTooltipModule, MatProgressBarModule, MatAutocompleteModule } from '@angular/material';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule, CovalentStepsModule, CovalentDialogsModule, CovalentLoadingModule, CovalentSearchModule, CovalentPagingModule, CovalentFileModule, CovalentNotificationsModule, CovalentMenuModule, CovalentChipsModule, CovalentJsonFormatterModule, CovalentDataTableModule, CovalentMessageModule, CovalentVirtualScrollModule } from '@covalent/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { FilesComponent } from './files/files.component';
-import { ClazzComponent } from './clazz/clazz.component';
-import { ExamComponent } from './exam/exam.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    ChiefRoutingModule,
+    StudentRoutingModule,
     FormsModule,
     /** Material Modules */
     MatButtonModule,
@@ -54,6 +51,6 @@ import { ExamComponent } from './exam/exam.component';
 
     NgxChartsModule,
   ],
-  declarations: [ChiefHomeComponent, ChiefComponent, FilesComponent, ClazzComponent, ExamComponent]
+  declarations: [StudentComponent, StudentHomeComponent]
 })
-export class ChiefModule { }
+export class StudentModule { }

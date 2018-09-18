@@ -27,6 +27,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RequestInterceptor } from '../config/interceptors/request.interceptor';
 import { MOCK_API } from '../config/api.config';
+import { CourseComponent } from './course/course.component';
 
 const httpInterceptorProviders: Type<any>[] = [
   RequestInterceptor,
@@ -38,7 +39,7 @@ export function getAPI(): string {
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent
+    AppComponent,LoginComponent, CourseComponent
   ],
   imports: [
     BrowserModule,
