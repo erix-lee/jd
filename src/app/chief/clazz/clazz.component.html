@@ -1,3 +1,56 @@
-<p>
-  clazz works!
-</p>
+<mat-toolbar>
+
+  <button mat-icon-button td-menu-button tdLayoutManageListToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  xxx班级学生
+  <span flex></span>
+  <button mat-icon-button matTooltip="添加学生"  (click)="openDialog()">
+      <mat-icon fontSet="fontawesome" fontIcon="fa-user-plus"></mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<mat-card>
+  <small>可拖拽排序</small>
+  <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0"
+    [rowHeight]="'auto'" >
+    <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="true" [resizeable]="false"
+      [headerCheckboxable]="true" [checkboxable]="true" >
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Name">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        姓名
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <strong>{{value}}</strong>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Gender">
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">学号</span>
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{value}}
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="company">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        电话
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <strong>{{value}}</strong>
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="company">
+      <ng-template let-column="column" ngx-datatable-header-template>
+
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <button mat-button matTooltip="删除学生" (click)="openSnackBar(Gender, '删除成功')">删除</button>
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+
+</mat-card>

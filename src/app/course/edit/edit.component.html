@@ -1,0 +1,59 @@
+<mat-toolbar>
+
+    <button mat-icon-button td-menu-button tdLayoutManageListToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    课程编辑
+    <span flex></span>
+    <mat-icon class="example-icon">verified_user</mat-icon>
+  
+  </mat-toolbar>
+  <div layout-sm="row" layout-gt-md="row">
+  
+    <mat-card flex>
+   
+      
+      <mat-card-content class="example-container">
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="标题" value="">
+            </mat-form-field><mat-divider></mat-divider>
+              <mat-card > 
+            <div [froalaEditor]="options" [(froalaModel)]="content"></div>
+            </mat-card>
+            <mat-divider></mat-divider>
+            <mat-form-field class="example-chip-list">
+                <mat-chip-list #chipList>
+                  <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                           [removable]="removable" (removed)="remove(fruit)">
+                    {{fruit.name}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="关键字"
+                         [matChipInputFor]="chipList"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+              </mat-form-field>
+  
+            <td-file-upload #singleFileUpload [(ngModel)]="files" (select)="selectEvent($event)" (upload)="uploadEvent($event)"
+              (cancel)="cancelEvent()" [disabled]="disabled" required>
+              <mat-icon>file_upload</mat-icon><span>{{ singleFileUpload.value?.name }}</span>
+              <ng-template td-file-input-label>
+                <mat-icon>attach_file</mat-icon>
+                <span>
+                  选择文件...</span>
+                <span [hidden]="!singleFileUpload?.required">*</span>
+              </ng-template>
+            </td-file-upload>
+   
+        
+      </mat-card-content> <mat-divider></mat-divider>
+      <mat-card-actions>
+          <button mat-button color="primary">发布</button>
+          <button mat-button color="accent">保存为模板</button>
+          <button mat-button color="primary">暂存</button>
+        </mat-card-actions>
+    </mat-card>
+    
+  </div>

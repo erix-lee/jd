@@ -9,12 +9,13 @@
 
     <mat-divider></mat-divider>
     <h3 mat-subheader>在修课程</h3>
-    <mat-list-item [routerLink]="['./techers']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+    <mat-list-item [routerLink]="['./course']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
       <mat-icon mat-list-icon>folder</mat-icon>
       <h4 mat-line>主修课程AA</h4>
       <p mat-line> 张老师</p>
+      <td-notification-count color="accent" [notifications]="3" matTooltip="3个更新!"></td-notification-count>
     </mat-list-item>
-    <mat-list-item [routerLink]="['./students']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+    <mat-list-item [routerLink]="['./course']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
       <mat-icon mat-list-icon>folder</mat-icon>
       <h4 mat-line>自主学习课程XXX</h4>
       <p mat-line> 张老师</p>
@@ -45,12 +46,6 @@
     </mat-list-item>
   </mat-nav-list>
 
-  <mat-toolbar>
-
-    <button mat-icon-button td-menu-button tdLayoutManageListToggle>
-      <mat-icon>menu</mat-icon>
-    </button>
-    Content Title
-  </mat-toolbar>
+ 
   <router-outlet></router-outlet>
 </td-layout-manage-list>

@@ -1,3 +1,14 @@
-<p>
-  chief-home works!
-</p>
+<mat-card>
+  <mat-card-title>最新动态</mat-card-title>
+
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <ngx-timeline [events]="events">
+      
+    </ngx-timeline>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <a mat-button color="accent">操作A</a>
+  </mat-card-actions>
+</mat-card>

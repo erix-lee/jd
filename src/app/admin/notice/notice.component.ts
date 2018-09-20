@@ -11,5 +11,15 @@ export class NoticeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  public content:String="公告内容";
+  public options: Object = {
+    charCounterCount: true,
+    language: 'zh_cn',
+    heightMin: 200,
+      heightMax: 400,
+    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+  };
 }

@@ -11,7 +11,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 
 import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatTabsModule,
-  MatToolbarModule, MatGridListModule, MatTooltipModule } from '@angular/material';
+  MatToolbarModule, MatGridListModule, MatTooltipModule, MatIconRegistry } from '@angular/material';
 import { CovalentCommonModule } from '@covalent/core/common';
 import { CovalentLayoutModule } from '@covalent/core/layout';
 import { CovalentMediaModule } from '@covalent/core/media';
@@ -40,7 +40,7 @@ export function getAPI(): string {
 
 @NgModule({
   declarations: [
-    AppComponent,LoginComponent, CourseComponent
+    AppComponent,LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -97,4 +97,8 @@ export function getAPI(): string {
   entryComponents: [ ],
   bootstrap: [ AppComponent ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+}

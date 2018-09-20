@@ -23,7 +23,7 @@ const routes: Routes = [
   {
 
     path: '', data: { preload: false, }, loadChildren: './student/student.module#StudentModule',
-  } 
+  }
 
 ];
 

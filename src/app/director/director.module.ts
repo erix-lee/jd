@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatMenuModule, MatInputModule, MatSelectModule, MatButtonToggleModule, MatSlideToggleModule, MatToolbarModule, MatTabsModule, MatTooltipModule, MatProgressBarModule, MatAutocompleteModule } from '@angular/material';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule, CovalentStepsModule, CovalentDialogsModule, CovalentLoadingModule, CovalentSearchModule, CovalentPagingModule, CovalentFileModule, CovalentNotificationsModule, CovalentMenuModule, CovalentChipsModule, CovalentJsonFormatterModule, CovalentDataTableModule, CovalentMessageModule, CovalentVirtualScrollModule } from '@covalent/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CourseModule } from '../course/course.module';
 
 @NgModule({
   imports: [
@@ -50,6 +51,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     CovalentVirtualScrollModule,
 
     NgxChartsModule,
+
+    CourseModule
   ],
   declarations: [DirectorComponent, DirectorHomeComponent]
 })

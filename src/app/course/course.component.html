@@ -1,3 +1,293 @@
-<p>
-  course works!
-</p>
+<mat-toolbar>
+
+  <button mat-icon-button td-menu-button tdLayoutManageListToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  课程A
+  <span flex></span>
+  <mat-icon class="example-icon">verified_user</mat-icon>
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="1">
+      教研室主任
+    </mat-button-toggle>
+    <mat-button-toggle value="2">
+      课程组长
+    </mat-button-toggle>
+    <mat-button-toggle value="3">
+      课程组员
+    </mat-button-toggle>
+    <mat-button-toggle value="4">
+      从我的课程进入
+    </mat-button-toggle>
+    <mat-button-toggle value="5">
+      学生
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</mat-toolbar>
+
+<mat-card *ngIf="group.value<=3">
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip color="primary" selected matTooltip="组长">张老师 </mat-chip>
+      <mat-chip>王老师</mat-chip>
+      <mat-chip>李老师</mat-chip>
+
+    </mat-chip-list>
+  </mat-card-content>
+
+</mat-card>
+<div layout-sm="row" layout-gt-md="row">
+  <div flex>
+
+    <mat-card *ngIf="group.value!=5">
+        <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+        <span  class="push-left-sm">
+            <span class="mat-title">课程资料</span>
+          </span>
+      
+          <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="输入 关键字 搜索" (searchDebounce)="search($event)" flex>
+          </td-search-box>
+        </div>
+
+      <mat-divider></mat-divider>
+      <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'">
+        <ngx-datatable-column name="description">
+          <ng-template let-column="column" ngx-datatable-header-template>
+         标题
+            
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+              <a [routerLink]="['./view']" >
+            <strong>{{value}}</strong>
+            </a>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="name">
+          <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+            作者
+          </ng-template>
+          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="created">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            时间
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="created"  *ngIf="group.value==4" >
+            <ng-template let-column="column" ngx-datatable-header-template>
+               操作
+              </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                <a [routerLink]="['./edit']" >  <i class="fa fa-edit"></i></a>
+            
+            </ng-template>
+          </ngx-datatable-column>
+      </ngx-datatable>
+
+    </mat-card>
+    <mat-card *ngIf="group.value==2">
+        <mat-card-title> 待审核的课程资料</mat-card-title>
+        <mat-divider></mat-divider>
+        <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="description">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              标题
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <strong>{{value}}</strong>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="name">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              作者
+            </ng-template>
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="created">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              时间
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <strong>{{value}}</strong>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  
+      </mat-card>
+    <mat-card *ngIf="group.value==5">
+      <mat-card-title> 课程资料</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-tab-group>
+        <mat-tab label="公开课程">
+          <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'">
+            <ngx-datatable-column name="description">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                标题
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <strong>{{value}}</strong>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="name">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                作者
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="created">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                时间
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template>
+                <strong>{{value}}</strong>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </mat-tab>
+        <mat-tab label="我的老师"><ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50"
+          [footerHeight]="50" [rowHeight]="'auto'">
+          <ngx-datatable-column name="description">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              标题
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <strong>{{value}}</strong>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="name">
+            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+              作者
+            </ng-template>
+            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="created">
+            <ng-template let-column="column" ngx-datatable-header-template>
+              时间
+            </ng-template>
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <strong>{{value}}</strong>
+            </ng-template>
+          </ngx-datatable-column>
+          </ngx-datatable>
+        </mat-tab>
+        <mat-tab label="我的收藏"></mat-tab>
+      </mat-tab-group>
+
+    </mat-card>
+  </div>
+  <div flex-sm="30" flex-gt-md="30">
+    <mat-card *ngIf="group.value!=5 && group.value!=1 && group.value!=4">
+      <mat-card-title> 试卷</mat-card-title>
+      <mat-card-subtitle>课程组族长可以创建试卷并邀请组员拟题，被邀请的组员可以参与拟题</mat-card-subtitle>
+      <mat-divider></mat-divider>
+      <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'">
+        <ngx-datatable-column name="description">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            标题
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+      </ngx-datatable>
+
+    </mat-card>
+
+    <mat-card *ngIf="group.value<3">
+      <mat-card-title>考试成绩（对比图表？）</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-form-field>
+          <mat-select [(value)]="selected" >
+ 
+            <mat-option value="option3" >第3次考试</mat-option>
+            <mat-option value="option2">第2次考试</mat-option>
+            <mat-option value="option3">第1次考试</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <ngx-datatable class="material" [rows]="rows2" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'">
+        <ngx-datatable-column name="name">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            任课教师
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="description">
+          <ng-template let-column="column" ngx-datatable-header-template>
+            平均成绩
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <strong>{{value}}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+
+
+      </ngx-datatable>
+<div>
+  <ol>
+    <li>单次考试的对比柱状图</li>
+    <li>全部考试的对比折线图</li>
+  </ol>
+</div>
+    </mat-card>
+    <mat-card *ngIf="group.value==4">
+      <mat-card-title> 功能</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-list role="list">
+        <mat-list-item role="listitem">添加资料</mat-list-item>
+        <mat-list-item role="listitem">考试</mat-list-item>
+        <mat-list-item role="listitem">查看成绩</mat-list-item>
+        <mat-list-item role="listitem">发布申请</mat-list-item>
+      </mat-list>
+
+    </mat-card>
+
+    <mat-card *ngIf="group.value==5">
+      <mat-card-title> 我的考试</mat-card-title>
+      <mat-divider></mat-divider>
+      <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'">
+        <ngx-datatable-column name="description" >
+          <ng-template let-column="column" ngx-datatable-header-template>
+            考试
+          </ng-template>
+          <ng-template let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+            <strong>第{{5-rowIndex}}次考试</strong>{{$index}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="description">
+            <ng-template let-column="column"  ngx-datatable-header-template>
+              成绩
+            </ng-template>
+            <ng-template let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+              <strong *ngIf="rowIndex>2">83分 </strong>
+              <strong *ngIf="rowIndex==2">未公布成绩 </strong>
+              <strong *ngIf="rowIndex==1">即将考试 </strong>
+              <strong *ngIf="rowIndex==0">领取试卷 </strong>
+            </ng-template>
+          </ngx-datatable-column>
+
+      </ngx-datatable>
+
+    </mat-card>
+  </div>
+</div>

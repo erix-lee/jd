@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>选择学生</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content>
+    <div  layout-gt-xs="row">
+
+        <div flex-gt-xs="70">
+            <ngx-datatable class="material" [rows]="rows" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0"
+                [rowHeight]="'auto'" [selected]="selected" [selectionType]="'checkbox'" [selectAllRowsOnPage]="false"
+                [displayCheck]="displayCheck" (select)='onSelect($event)'>
+                <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="true"
+                    [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Name">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        姓名
+                    </ng-template>
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        <strong>{{value}}</strong>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Gender">
+                    <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                        <span (click)="sort()">学号</span>
+                    </ng-template>
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        {{value}}
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="company">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+                        电话
+                    </ng-template>
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        <strong>{{value}}</strong>
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="company">
+                    <ng-template let-column="column" ngx-datatable-header-template>
+
+                    </ng-template>
+                    <ng-template let-value="value" ngx-datatable-cell-template>
+                        <button mat-button matTooltip="删除学生" (click)="openSnackBar(Gender, '删除成功')">删除</button>
+                    </ng-template>
+                </ngx-datatable-column>
+
+            </ngx-datatable>
+        </div>
+        <div flex>
+            <h4>已选择 <small>({{selected?.length}})</small></h4>
+            <ul>
+                <li *ngFor='let sel of selected'>
+                    {{sel.name}}   <button mat-icon-button  color="warn" >
+                            <mat-icon fontSet="fontawesome" fontIcon="fa-user-times"></mat-icon>
+                          </button>
+                </li>
+                <li *ngIf="!selected?.length">无选择</li>
+            </ul>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>关闭</button>
+    
+</mat-dialog-actions>

@@ -4,8 +4,11 @@
     <mat-icon>menu</mat-icon>
   </button>
   教师 <span flex></span>
-  <button mat-button color="primary">导入</button>
-  <button mat-button color="primary">添加</button>
+  <button mat-mini-fab color="primary">+</button>
+  <button mat-raised-button color="primary">导入</button>
+  <button mat-raised-button color="primary">导出</button>
+  <button mat-raised-button color="primary">添加</button>
+  <button mat-raised-button color="warn">批量删除</button>
  
 
 </mat-toolbar>
@@ -20,7 +23,7 @@
       <span class="mat-title">教师（23）</span>
     </span>
 
-    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="搜索" (searchDebounce)="search($event)" flex>
+    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="输入 姓名/工号/电话号码 搜索" (searchDebounce)="search($event)" flex>
     </td-search-box>
   </div>
   <mat-divider></mat-divider>
