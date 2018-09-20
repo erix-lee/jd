@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CourseRoutingModule } from './course-routing.module';
 import { CourseComponent } from './course.component';
-import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatSelectModule, MatButtonToggleModule, MatSlideToggleModule, MatToolbarModule, MatTabsModule, MatTreeModule, MatTooltipModule, MatProgressBarModule, MatAutocompleteModule, MatChipsModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatButtonModule, MatListModule, MatIconModule, MatCardModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatSelectModule, MatButtonToggleModule, MatSlideToggleModule, MatToolbarModule, MatTabsModule, MatTreeModule, MatTooltipModule, MatProgressBarModule, MatAutocompleteModule, MatChipsModule, MAT_DATE_LOCALE, MatSidenavModule } from '@angular/material';
 import { CovalentCommonModule, CovalentLayoutModule, CovalentMediaModule, CovalentExpansionPanelModule, CovalentStepsModule, CovalentDialogsModule, CovalentLoadingModule, CovalentSearchModule, CovalentPagingModule, CovalentFileModule, CovalentNotificationsModule, CovalentMenuModule, CovalentChipsModule, CovalentJsonFormatterModule, CovalentDataTableModule, CovalentMessageModule, CovalentVirtualScrollModule } from '@covalent/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxTimelineModule } from 'ngx-timeline';
@@ -30,8 +30,10 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
     MatSelectModule,
 
     MatButtonToggleModule,
+
     MatSlideToggleModule,
     MatToolbarModule,
+    MatSidenavModule,
     MatTabsModule,
     MatTreeModule,
     MatTooltipModule,

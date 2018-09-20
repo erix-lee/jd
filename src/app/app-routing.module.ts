@@ -23,7 +23,11 @@ const routes: Routes = [
   {
 
     path: '', data: { preload: false, }, loadChildren: './student/student.module#StudentModule',
-  }
+  },
+  {
+
+    path: '', data: { preload: false, }, loadChildren: './course/course.module#CourseModule',
+  } 
 
 ];
 

@@ -1,5 +1,37 @@
-<pre>
-用网页展现课程内容。
-有权限编辑的显示编辑按钮。
-学生显示 收藏按钮
-</pre>
+<mat-toolbar>
+
+
+    第一章 基本理念
+    <span flex></span>
+    <button mat-icon-button td-menu-button matTooltip="收藏"  >
+        <mat-icon fontSet="fontawesome" fontIcon="fa-heart"></mat-icon> 
+    </button>
+    <button mat-icon-button td-menu-button matTooltip="编辑"    [routerLink]="['../edit']" >
+        <mat-icon fontSet="fontawesome" fontIcon="fa-edit"></mat-icon> 
+    </button>
+    <button mat-icon-button td-menu-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container" layout-sm="row" layout-gt-md="row">
+      
+      <mat-drawer #drawer [mode]="'side'"  [position] ="'end'" flex-sm="20" flex-gt-md="20">这里显示目录</mat-drawer>
+      <mat-drawer-content flex>
+          <pre>
+
+              操作栏 
+              有权限编辑的显示编辑按钮。
+              学生显示 收藏按钮/已收藏文字
+              
+              内容
+              用网页展现课程内容。
+          
+              页脚 
+              显示 《上一篇：上一篇标题  下一篇：下一篇标题》
+              点击后左右动画翻页
+          
+          
+          </pre>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  
