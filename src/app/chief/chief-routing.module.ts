@@ -27,16 +27,16 @@ const chiefRoutes: Routes = [{
     } ,
     {
       component: CourseComponent,
-      path: 'course',
+      path: 'course/:type',
     } ,
     {
       component: EditComponent,
-      path: 'course/edit',
+      path: 'course/:type/edit',
     } 
     ,
     {
       component: DetailComponent,
-      path: 'course/view',
+      path: 'course/:type/view',
     } 
   ],
 }];

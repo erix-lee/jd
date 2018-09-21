@@ -18,12 +18,12 @@ const studentRoutes: Routes = [{
     } ,
     {
       component: CourseComponent,
-      path: 'course',
+      path: 'course/:type',
     } 
     ,
     {
       component: DetailComponent,
-      path: 'course/view',
+      path: 'course/:type/view',
     } 
   ],
 }];

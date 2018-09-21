@@ -45,9 +45,9 @@ export class LoginComponent {
     };
 
     setTimeout(() => {
-      alert('模拟延迟1秒登录：账号= ' + this.username + "，角色=" + role.name + "\/" + role.display);
+      alert('模拟延迟0.7秒登录：账号= ' + this.username + "，角色=" + role.name + "\/" + role.display);
       this._router.navigate([role.name]);
       this._loadingService.resolve();
-    }, 1000);
+    }, 700);
   }
 }

@@ -95,6 +95,10 @@ mat-nav-list {
 .example-icon {
     padding: 0 14px;
   }
+  .mat-nav-list   .mat-list-item.active{
+      background-color:#EEEEEE;
+ 
+  }
 /* ------------------------------------------------------------------------------- */
 
 $foreground: map-get($theme, foreground);

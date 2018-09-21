@@ -22,16 +22,12 @@ const directorRoutes: Routes = [{
     } ,
     {
       component: CourseComponent,
-      path: 'course',
+      path: 'course/:type',
     } ,
-    {
-      component: EditComponent,
-      path: 'course/edit',
-    } 
-    ,
+
     {
       component: DetailComponent,
-      path: 'course/view',
+      path: 'course/:type/view',
     } 
   ],
 }];
